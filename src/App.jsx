@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import Landing from './components/Landing'
 import Marque from './components/Marque'
 import About from './components/About'
+import Eyes from './components/Eyes'
 
 export default function App(){
     
@@ -23,5 +24,6 @@ export default function App(){
        <Landing />
        <Marque />
        <About />
+       <Eyes />
  </main>
 }
