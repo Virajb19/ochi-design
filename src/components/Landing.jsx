@@ -18,22 +18,14 @@ export default function Landing() {
         })
     }, [])
 
-    function handleMouseEnter() {
+    function handleMouseEvent(isEntering) {
             gsap.to('#animate', {
-                scale: 1,
+                scale: isEntering ? 1 : 0,
                 duration: 0.5,
                 ease: 'expo.out'
             })
     }
     
-    function handleMouseLeave() {
-        gsap.to('#animate', {
-            scale: 0,
-            duration: 0.5,
-            ease: 'expo.out'
-        })
-    }
-
     return <main className="p-1">
             <div id="masker" className="text-white uppercase pl-3 pt-3 sm:pl-12 sm:pt-9">
                {['we create','eye-opening','presentations'].map((text,i) => {
@@ -50,7 +42,7 @@ export default function Landing() {
                    })}
                 </div>
                 <div className="flex gap-4 items-center">
-                   <button onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="px-3 py-1 border border-white hover:border-transparent hover:bg-white hover:text-black duration-500 rounded-full peer">START THE PROJECT</button>
+                   <button onMouseEnter={() => handleMouseEvent(true)} onMouseLeave={() => handleMouseEvent(false)} className="px-3 py-1 border border-white hover:border-transparent hover:bg-white hover:text-black duration-500 rounded-full peer">START THE PROJECT</button>
                    <span className="rotate-45 flex-center rounded-full text-xl mb:text-base p-2 border peer-hover:text-black duration-200 relative">
                     <FaArrowUp />
                     <span id="animate" className="absolute w-full h-full rounded-full bg-white -z-10 scale-0"></span>

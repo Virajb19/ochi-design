@@ -5,6 +5,7 @@ import Landing from './components/Landing'
 import Marque from './components/Marque'
 import About from './components/About'
 import Eyes from './components/Eyes'
+import Featured from './components/Featured'
 
 export default function App(){
     
@@ -25,5 +26,6 @@ export default function App(){
        <Marque />
        <About />
        <Eyes />
+       <Featured />
  </main>
 }
