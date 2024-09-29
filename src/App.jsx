@@ -1,5 +1,3 @@
-import { useEffect } from 'react'
-import Lenis from 'lenis'
 import Navbar from './components/Navbar'
 import Landing from './components/Landing'
 import Marque from './components/Marque'
@@ -8,19 +6,11 @@ import Eyes from './components/Eyes'
 import Featured from './components/Featured'
 import Cards from './components/Cards'
 import Footer from './components/Footer'
+import LocomotiveScroll from 'locomotive-scroll'
 
 export default function App(){
-    
-      useEffect(() => {
-        const lenis = new Lenis({duration: 1.5, smooth: true, infinite: false})
-        function raf(time) {
-          lenis.raf(time)
-          requestAnimationFrame(raf)
-        } 
-        requestAnimationFrame(raf)
-        return () => lenis.destroy()
-   }, [])
 
+  const locomotiveScroll = new LocomotiveScroll()
 
  return <main className="w-full min-h-screen bg-zinc-900">
        <Navbar />

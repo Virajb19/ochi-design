@@ -21,6 +21,7 @@ export default function Featured() {
 function Card({name, img, buttons, id}){
 
     const spanRefs = useRef([])
+    const letterRefs = useRef([])
     const isMobile = useMediaQuery({ query: '(max-width: 640px)' })
 
     function handleMouseEvent(isEntering,i) {
@@ -31,16 +32,28 @@ function Card({name, img, buttons, id}){
             ease: 'power2.inOut'
         })
     }
+
+    // function handleImgHover(isEntering){
+    //       gsap.to(letterRefs.current, {
+    //         opacity: isEntering ? 1 : 0,
+    //         y: isEntering ? -100 : 0,
+    //         duration: 1,
+    //         ease: 'power',
+    //         stagger: 0.2,
+    //       }
+    //      )
+    // }
+
   
     return <main className='relative flex flex-col p-1 gap-4 mt-5'>
           <div className='flex items-center gap-3 text-white'>
               <span className='size-3 bg-white rounded-full'></span>
               <span className='uppercase'>{name}</span>
           </div>
-          <img className={clsx('rounded-2xl cursor-pointer hover:scale-90 duration-700', name === 'VISE' && 'border border-gray-200')} src={img}/>
+          <img onMouseEnter={() => handleImgHover(true)} onMouseLeave={() => handleImgHover(false)} className={clsx('rounded-2xl cursor-pointer hover:scale-90 duration-700', name === 'VISE' && 'border border-gray-200')} src={img}/>
           <h1 className={twMerge('absolute text-center top-1/2 tb:top-1/3 mb:top-[35%] mb:left-0 mb:text-center mb:w-full z-10 text-[#CDEA68] font-extrabold text-8xl tb:text-5xl mb:text-5xl tracking-widest uppercase', !isMobile && (id % 2 == 0 ? 'right-0 translate-x-1/2' : 'left-0 -translate-x-1/2'))}>
            {name.split('').map((letter,i) => {
-             return <span key={i}>{letter}</span>
+             return <span className='' ref={el => letterRefs.current[i] = el} key={i}>{letter}</span>
            })}
           </h1>
           <div id='buttons' className='flex flex-wrap p-1 gap-5'>
