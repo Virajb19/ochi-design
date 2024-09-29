@@ -10,11 +10,9 @@ export default function Landing() {
 
     useGSAP(() => {
         gsap.to(spanRef.current, {
-            scaleX: 1,
-            display: 'inline',
-            transformOrigin: 'left',
+            width: window.innerWidth < 640 ? '5rem' : '8rem',
             duration: 1.2,
-            ease: 'expo.in'
+            ease: 'expo.inOut'
         })
     }, [])
 
@@ -29,8 +27,8 @@ export default function Landing() {
     return <main className="p-1">
             <div id="masker" className="text-white uppercase pl-3 pt-3 sm:pl-12 sm:pt-9">
                {['we create','eye-opening','presentations'].map((text,i) => {
-                return <h1 key={i} className="text-8xl tb:text-6xl mb:text-4xl tracking-tighter font-extrabold flex items-center gap-3">
-                    {i === 1 && <span ref={spanRef} className="w-32 mb:w-20 rounded-lg h-[4.4rem] tb:h-[3.5rem] mb:h-[2.25rem] bg-green-700 mt-3 mb:mt-1 scale-x-0 hidden"></span>}
+                return <h1 key={i} className="text-8xl tb:text-6xl mb:text-4xl tracking-tighter font-extrabold flex items-center gap-1">
+                    {i === 1 && <span ref={spanRef} className="w-0 rounded-lg h-[4.4rem] tb:h-[3.5rem] mb:h-[2.25rem] mt-3 mb:mt-1 bg-cover bg-center bg-[url('https://ochi.design/wp-content/uploads/2022/12/PB-Front-4-663x551.png')]"></span>}
                     {text}
                 </h1>
                })}

@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { useRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { useMediaQuery } from 'react-responsive'
+import Button from './Button.jsx'
 
 export default function Featured() {
     return <main className="w-full">
@@ -13,6 +14,7 @@ export default function Featured() {
                     return <Card key={i} name={card.name} img={card.img} buttons={card.buttons} id={i}/>
                 })}
              </div>
+             <Button name={'View all case studies'}/>
         </main>
 }
 

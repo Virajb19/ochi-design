@@ -4,7 +4,7 @@ import gsap from "gsap"
 import { twMerge } from "tailwind-merge"
 
 export default function Cards() {
-    return <main className="flex mb:flex-col tb:grid tb:grid-cols-2 pt-20 px-10 tb:px-5 mb:p-3 gap-5 w-full sm:h-screen">
+    return <main className="flex mb:flex-col tb:grid tb:grid-cols-2 pt-20 px-10 tb:px-5 mb:px-3 mb:py-10 gap-5 w-full sm:h-screen">
             {cards2.map((card,i) => {
                 return <Card key={i} img={card.img} button={card.button} id={i + 1}/>
             })}
