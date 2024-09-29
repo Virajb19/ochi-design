@@ -28,7 +28,7 @@ export default function Landing() {
             <div id="masker" className="text-white uppercase pl-3 pt-6 sm:pl-12 sm:pt-9">
                {['we create','eye-opening','presentations'].map((text,i) => {
                 return <h1 key={i} className="text-8xl tb:text-6xl mb:text-4xl tracking-tighter font-extrabold flex items-center gap-1">
-                    {i === 1 && <span ref={spanRef} className="w-0 rounded-lg h-[4.4rem] tb:h-[3.5rem] mb:h-[2.25rem] mt-3 mb:mt-1 bg-cover bg-center bg-[url('https://ochi.design/wp-content/uploads/2022/12/PB-Front-4-663x551.png')]"></span>}
+                    {i === 1 && <span ref={spanRef} className="w-0 rounded-lg h-[4.4rem] tb:h-[3.5rem] mb:h-[2.25rem] mt-3 mb:mt-1 border bg-cover bg-center bg-[url('https://ochi.design/wp-content/uploads/2022/12/PB-Front-4-663x551.png')]"></span>}
                     {text}
                 </h1>
                })}
