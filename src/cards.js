@@ -31,3 +31,19 @@ export const cards = [
     buttons: ['Branded template']
   },
 ]
+
+
+export const cards2 = [
+  {
+    img: 'https://ochi.design/wp-content/uploads/2022/04/logo001.svg',
+    button: '© 2019-2022'
+  },
+  {
+     img: 'https://ochi.design/wp-content/uploads/2022/04/logo002.svg',
+     button : 'rating 5.0 on clutch'
+  },
+  {
+      img: 'https://ochi.design/wp-content/uploads/2022/04/logo003.png',
+      button: 'business bootcamp alumni'
+  }
+]

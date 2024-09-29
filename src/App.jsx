@@ -6,6 +6,7 @@ import Marque from './components/Marque'
 import About from './components/About'
 import Eyes from './components/Eyes'
 import Featured from './components/Featured'
+import Cards from './components/Cards'
 
 export default function App(){
     
@@ -27,5 +28,6 @@ export default function App(){
        <About />
        <Eyes />
        <Featured />
+       <Cards />
  </main>
 }
