@@ -1,13 +1,14 @@
 import { useRef, useState } from "react"
 import { twMerge } from "tailwind-merge"
-import { X, Menu } from "lucide-react"
+import { X, Menu, Scale } from "lucide-react"
 import clsx from "clsx"
 import { AnimatePresence as AP, delay, motion } from 'framer-motion'
+
 
 export default function Navbar() {
 
    const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-
+   // fixed top-0 w-full
     return <>
        <nav className="sticky top-0 z-[100] backdrop-blur-lg text-white flex px-20 mb:px-4 tb:px-8 py-3 gap-1 items-center justify-between border-b border-gray-500">
             <svg className={clsx(isDrawerOpen && 'text-[#18181B]')} width="72" height="30" viewBox="0 0 72 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,15 +25,17 @@ export default function Navbar() {
                 </li>
                })}
             </ul>
-            <motion.button initial={{scale: 1}} animate={{scale: 1}} onClick={() => setIsDrawerOpen(!isDrawerOpen)} className={clsx('lp:hidden', isDrawerOpen && 'text-[#18181B]')}>{isDrawerOpen ? <X /> : <Menu />}</motion.button>
+
+            <button onClick={() => setIsDrawerOpen(!isDrawerOpen)} className={clsx('lp:hidden', isDrawerOpen && 'text-[#18181B]')}>{isDrawerOpen ? <X /> : <Menu />}</button>
+
         </nav>
          
       <AP>
-        {isDrawerOpen && <motion.div key='modal' initial={{height: 0}} animate={{height: '100vh'}} exit={{height: 0}} transition={{ease: [0, 0.55, 0.45, 1], duration: 10,type: 'spring', exit: {ease: [0.25, 1, 0.5, 1], duration: 10}}} 
-                                className="lp:hidden fixed top-0 overflow-hidden w-full bg-white h-screen z-[90] py-20">
+        {isDrawerOpen && <motion.div key='modal' initial={{height: 0}} animate={{height: '100vh'}} exit={{height: 0}} transition={{ease: [0, 0.55, 0.45, 1], duration: 0.7}} 
+                                className="lp:hidden fixed top-0 overflow-hidden w-full bg-white z-[90] py-20">
                            <div className="flex flex-col p-1 gap-1">
                               {["Services","Our work","About us","Insights","Contact us"].map((text,i) => {
-                                 return <motion.h1 key={i} initial={{x: '-100%', opacity: 0}} animate={{x: 0, opacity: 1}} transition={{ease: [.33, 1, 0.68, 1], delay: i * 0.07}}
+                                 return <motion.h1 key={i} initial={{x: '-100%', opacity: 0}} animate={{x: 0, opacity: 1}} transition={{ease: [.33, 1, 0.68, 1], delay: i * 0.08}}
                                  className="text-5xl tb:text-8xl font-extrabold tracking-tighter">{text}</motion.h1>
                               })}
                            </div>
