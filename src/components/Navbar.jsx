@@ -2,6 +2,7 @@ import { useState } from "react"
 import { twMerge } from "tailwind-merge"
 import { X, Menu } from "lucide-react"
 import clsx from "clsx"
+import { motion } from 'framer-motion'
 
 export default function Navbar() {
 
@@ -23,10 +24,14 @@ export default function Navbar() {
                 </li>
                })}
             </ul>
-            <button onClick={() => setIsDrawerOpen(!isDrawerOpen)} className={clsx('lp:hidden', isDrawerOpen && 'text-[#18181B]')}>{isDrawerOpen ? <X /> : <Menu />}</button>
+            <motion.button initial={{scale: 1}} animate={{scale: 1}} onClick={() => setIsDrawerOpen(!isDrawerOpen)} className={clsx('lp:hidden', isDrawerOpen && 'text-[#18181B]')}>{isDrawerOpen ? <X /> : <Menu />}</motion.button>
         </nav>
-        {isDrawerOpen && <div className="lp:hidden w-full bg-white h-screen z-[90] top-0 absolute">
-                       
+        {isDrawerOpen && <div className="lp:hidden fixed top-0 w-full bg-white h-screen z-[90] py-20">
+                           <div className="flex flex-col p-1 gap-1">
+                              {["Services","Our work","About us","Insights","Contact us"].map((text,i) => {
+                                 return <h1 key={i} className="text-5xl tb:text-8xl font-extrabold tracking-tighter">{text}</h1>
+                              })}
+                           </div>
                        </div>}
       </>
 }
