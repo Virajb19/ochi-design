@@ -26,7 +26,7 @@ export default function Navbar() {
                })}
             </ul>
 
-            <button onClick={() => setIsDrawerOpen(!isDrawerOpen)} className={clsx('lp:hidden', isDrawerOpen && 'text-[#18181B]')}>{isDrawerOpen ? <X /> : <Menu />}</button>
+            <motion.button whileTap={{scale: 0.75}} onClick={() => setIsDrawerOpen(!isDrawerOpen)} className={clsx('lp:hidden', isDrawerOpen && 'text-[#18181B]')}>{isDrawerOpen ? <X /> : <Menu />}</motion.button>
 
         </nav>
          
