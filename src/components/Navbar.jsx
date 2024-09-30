@@ -1,8 +1,8 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { twMerge } from "tailwind-merge"
 import { X, Menu } from "lucide-react"
 import clsx from "clsx"
-import { motion } from 'framer-motion'
+import { AnimatePresence as AP, delay, motion } from 'framer-motion'
 
 export default function Navbar() {
 
@@ -26,12 +26,17 @@ export default function Navbar() {
             </ul>
             <motion.button initial={{scale: 1}} animate={{scale: 1}} onClick={() => setIsDrawerOpen(!isDrawerOpen)} className={clsx('lp:hidden', isDrawerOpen && 'text-[#18181B]')}>{isDrawerOpen ? <X /> : <Menu />}</motion.button>
         </nav>
-        {isDrawerOpen && <div className="lp:hidden fixed top-0 w-full bg-white h-screen z-[90] py-20">
+         
+      <AP>
+        {isDrawerOpen && <motion.div key='modal' initial={{height: 0}} animate={{height: '100vh'}} exit={{height: 0}} transition={{ease: [0, 0.55, 0.45, 1], duration: 1,type: 'spring', exit: {ease: [0.25, 1, 0.5, 1], duration: 10}}} 
+                                className="lp:hidden fixed top-0 overflow-hidden w-full bg-white h-screen z-[90] py-20">
                            <div className="flex flex-col p-1 gap-1">
                               {["Services","Our work","About us","Insights","Contact us"].map((text,i) => {
-                                 return <h1 key={i} className="text-5xl tb:text-8xl font-extrabold tracking-tighter">{text}</h1>
+                                 return <motion.h1 key={i} initial={{x: '-100%', opacity: 0}} animate={{x: 0, opacity: 1}} transition={{ease: [.33, 1, 0.68, 1], delay: i * 0.07}}
+                                 className="text-5xl tb:text-8xl font-extrabold tracking-tighter">{text}</motion.h1>
                               })}
                            </div>
-                       </div>}
+                       </motion.div>}
+         </AP>
       </>
 }
