@@ -18,7 +18,7 @@ export default function Navbar() {
 			</svg>
             <ul id="links" className="flex gap-7 p-1 text-md mb:hidden tb:hidden">
                {["Services","Our work","About us","Insights","Contact us"].map((link,i) => {
-                return <li key={i} className={twMerge("cursor-pointer", i == 4 && "ml-64")}>
+                return <li key={i} className={twMerge("cursor-pointer border border-transparent rounded-full p-1 hover:border-gray-300 duration-200", i == 4 && "ml-64")}>
                      {link}
                 </li>
                })}
