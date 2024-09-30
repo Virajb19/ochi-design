@@ -28,7 +28,7 @@ export default function Navbar() {
         </nav>
          
       <AP>
-        {isDrawerOpen && <motion.div key='modal' initial={{height: 0}} animate={{height: '100vh'}} exit={{height: 0}} transition={{ease: [0, 0.55, 0.45, 1], duration: 1,type: 'spring', exit: {ease: [0.25, 1, 0.5, 1], duration: 10}}} 
+        {isDrawerOpen && <motion.div key='modal' initial={{height: 0}} animate={{height: '100vh'}} exit={{height: 0}} transition={{ease: [0, 0.55, 0.45, 1], duration: 10,type: 'spring', exit: {ease: [0.25, 1, 0.5, 1], duration: 10}}} 
                                 className="lp:hidden fixed top-0 overflow-hidden w-full bg-white h-screen z-[90] py-20">
                            <div className="flex flex-col p-1 gap-1">
                               {["Services","Our work","About us","Insights","Contact us"].map((text,i) => {
